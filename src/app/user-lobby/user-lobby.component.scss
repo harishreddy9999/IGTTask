@@ -1,0 +1,69 @@
+.user-lobby {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.filter-sort-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.filter-group, .sort-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-form-field {
+  min-width: 150px;
+  margin-right: 10px;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.user-card {
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  background-color: #9ab0c9;
+}
+
+.show-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.cardcontent{
+  font-weight:500;
+}
+
+@media (max-width: 600px) {
+  .filter-sort-wrapper {
+    flex-direction: column;
+  }
+
+  .filter-group, .sort-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  mat-form-field, .filter-group button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .user-card {
+    width: 100%;
+  }
+}

@@ -1,0 +1,48 @@
+<div class="user-lobby mat-elevation-z8">
+  <!-- Search Bar -->
+  <!-- Filters and Sorting -->
+  <div class="filter-sort-wrapper">
+    <div class="filter-group">
+      <mat-form-field>
+        <input matInput placeholder="Search by name" (input)="onSearchChange($event)" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select [(ngModel)]="selectedGender" (selectionChange)="onFilterChange()">
+          <mat-option value="">All Genders</mat-option>
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select [(ngModel)]="selectedStatus" (selectionChange)="onFilterChange()">
+          <mat-option value="">All Statuses</mat-option>
+          <mat-option value="active">Active</mat-option>
+          <mat-option value="inactive">Inactive</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="sort-group">
+      <button mat-raised-button color="primary" class="mx-2" (click)="onSortName('name')">Sort by Name</button>
+      <button mat-raised-button color="primary" class="mx-2" (click)="onSortEmail('email')">Sort by Email</button>
+    </div>
+  </div>
+
+  <!-- User List -->
+  <div class="user-list">
+    <mat-card *ngFor="let user of users" class="user-card" (click)="showUserList(user)">
+      <mat-card-title class="px-3 py-1 d-flex justify-content-left">{{ user.name }}</mat-card-title>
+      <mat-card-content class="cardcontent">
+        <p>Email: {{ user.email }}</p>
+        <p>Gender: {{ user.gender }}</p>
+        <p>Status: {{ user.status }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Show More Button -->
+  <div class="show-more-wrapper " *ngIf="users.length < totalUsers">
+    <button mat-raised-button color="accent" (click)="showMore()">Show More</button>
+  </div>
+</div>
